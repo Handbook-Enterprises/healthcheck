@@ -5,7 +5,7 @@ use std::process::exit;
 async fn main() {
     let healthcheck_uri = match env::var("HEALTHCHECK_URI") {
         Ok(val) => val,
-        Err(_) => "http://localhost".to_string(),
+        Err(_) => "localhost".to_string(),
     };
     let port = match env::var("PORT") {
         Ok(val) => val,
