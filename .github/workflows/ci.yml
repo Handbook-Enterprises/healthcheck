@@ -42,7 +42,9 @@ jobs:
 
       - name: Preset Image Name
         run: echo "IMAGE_URL=$(echo registry.k8s.bruf.io/${{ github.event.repository.name }}:$(echo ${{ github.sha }} | cut -c1-7) | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-        run: echo "LATEST_TAG=$(echo registry.k8s.bruf.io/${{ github.event.repository.name }}:latest" >> $GITHUB_ENV
+
+      - name: Preset Latest Name
+        run: echo "LATEST_TAG=$(echo registry.k8s.bruf.io/${{ github.event.repository.name }}:latest)" >> $GITHUB_ENV
 
       - name: Build and push Docker Image
         uses: docker/build-push-action@v5
